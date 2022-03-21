@@ -5,7 +5,7 @@
 ```
 
 module "vpc" {
-    source = ""
+  source  = "MrVF7777/vpc/aws"
 }
 
 ```
