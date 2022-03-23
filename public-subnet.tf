@@ -1,12 +1,14 @@
-resource "aws_subnet" "public_subnet" {
+resource "aws_subnet" "public1" {
   vpc_id     = aws_vpc.main.id
-  count      = length(var.public_subnets_cidrs)
-  cidr_block = element(var.public_subnets_cidrs,   count.index)
-  availability_zone = element(var.availability_zones,   count.index)
-  map_public_ip_on_launch = true
-  tags = {
-    Name = "public${format(count.index + 1)}"
-    Env  = "Prod"
-    Team = "DevOps"
-  }
+  cidr_block = var.public_subnets_cidr[0]
+}
+
+resource "aws_subnet" "public2" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.public_subnets_cidr[1]
+}
+
+resource "aws_subnet" "public3" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.public_subnets_cidr[2]
 }
