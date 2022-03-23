@@ -8,7 +8,7 @@ resource "aws_nat_gateway" "ngw" {
   subnet_id     = aws_subnet.public1
 
   depends_on = [aws_internet_gateway.igw]
-  tags = = {
+  tags = {
         Name = "NGW"
     }
 }
